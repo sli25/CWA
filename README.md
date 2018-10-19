@@ -3,7 +3,7 @@ CWA - Check if Windows is Activated
 This is a little reference to check if your Windows copy is activated for C#.
 
 # USAGE
-if (CheckActivation.IsGenuineWindows())
+if (CWA.CheckActivation.IsGenuineWindows())
     MessageBox.Show("Windows is enabled");
 else
     MessageBox.Show("Windows is not enabled");
