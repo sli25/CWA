@@ -1,5 +1,4 @@
-# CWA
-CWA - Check if Windows is Activated
+# CWA - Check if Windows is Activated
 This is a little reference to check if your Windows copy is activated for C#.
 
 # USAGE
