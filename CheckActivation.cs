@@ -6,7 +6,6 @@ namespace CWA
     using SLID = Guid;
     public class CheckActivation
     {
-
         public enum SL_GENUINE_STATE
         {
             SL_GEN_STATE_IS_GENUINE = 0,
@@ -19,7 +18,6 @@ namespace CWA
         [PreserveSig()]
         internal static extern uint SLIsGenuineLocal(ref SLID slid, [In, Out] ref SL_GENUINE_STATE genuineState, IntPtr val3);
 
-
         public static bool IsGenuineWindows()
         {
             bool _IsGenuineWindows = false;
@@ -30,19 +28,16 @@ namespace CWA
                 SL_GENUINE_STATE genuineState = SL_GENUINE_STATE.SL_GEN_STATE_LAST;
                 uint ResultInt = SLIsGenuineLocal(ref windowsSlid, ref genuineState, IntPtr.Zero);
                 if (ResultInt == 0)
-                {
                     _IsGenuineWindows = (genuineState == SL_GENUINE_STATE.SL_GEN_STATE_IS_GENUINE);
-                }
                 else
-                {
-                    Console.WriteLine("Error getting information {0}", ResultInt.ToString());
-                }
+                    throw new Exception("Error getting information {0}", ResultInt.ToString());
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw new Exception(ex.Message);
             }
+            
             return _IsGenuineWindows;
         }
 
